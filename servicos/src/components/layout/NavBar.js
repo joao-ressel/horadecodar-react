@@ -13,7 +13,7 @@ function NavBar(props){
                         <Link to="/">Home</Link>
                     </li>
                     <li className={styles.item}>
-                        <Link to="/projects">Projects</Link>
+                        <Link to="/Services">Services</Link>
                     </li>
                     <li className={styles.item}>
                         <Link to="/company">Company</Link>

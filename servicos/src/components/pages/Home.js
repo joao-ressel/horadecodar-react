@@ -1,6 +1,12 @@
+import styles from './Home.module.css'
+
 function Home(){
     return (
-        <h1>Home</h1>
+        <section className={styles.home_container}>
+            <h1>Bem vindo ao <span>Our Services</span></h1>
+            <p>Comece a gerenciar os seus projetos agora mesmo!</p>
+            <a href="/newservice">Criar Serviço</a>
+        </section>
     )
 }
 export default Home
