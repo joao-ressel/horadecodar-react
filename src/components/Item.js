@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 function Item({marca, lancamento}){
     return(
-        <>
+        <div>
             <li>{marca} - {lancamento}</li>
-        </>
+        </div>
     )
 }
 
