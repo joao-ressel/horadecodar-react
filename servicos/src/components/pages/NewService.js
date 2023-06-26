@@ -1,6 +1,11 @@
+import styles from './Newservice.module.css'
+import ServiceForm from '../project/ServiceForm'
 function NewService(){
     return (
-        <h1>New Service</h1>
+        <div className={styles.newservice_container}>
+            <h1 >Criar Seviço</h1>
+            <ServiceForm btnText='Criar Serviço'/>
+        </div>
     )
 }
 export default NewService
