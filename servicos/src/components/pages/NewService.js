@@ -1,5 +1,5 @@
 import styles from './Newservice.module.css'
-import ServiceForm from '../project/ServiceForm'
+import ServiceForm from '../service/ServiceForm'
 function NewService(){
     return (
         <div className={styles.newservice_container}>
