@@ -3,6 +3,11 @@ import styles from './ServiceCard.module.css'
 import { BsPencil, BsFillTrashFill } from 'react-icons/bs'
 
 function ServiceCard({id, name, budget, category, handleRemove}){
+
+    const remove = (e) =>{
+        e.preventDefault()
+        handleRemove(id)
+    }
     return(
         <div className={styles.service_card}>
             <h4>{name}</h4>
@@ -10,7 +15,7 @@ function ServiceCard({id, name, budget, category, handleRemove}){
             <p className={styles.category_text}><span className={`${styles[category.toLowerCase()]}`}></span>{category}</p>
             <div className={styles.service_card_actions}>
                 <Link to="/"><BsPencil/> Editar</Link>
-                <button>
+                <button onClick={remove}>
                     <BsFillTrashFill/>Excluir
                 </button>
             </div>

@@ -11,6 +11,7 @@ function Services(){
 
     const [services, setServices] = useState([])
     const [removeLoading, setRemoveLoading] = useState(false)
+    const [serviceMessage, setServiceMessage] = useState('')
 
     const location = useLocation()
     let message = ''
@@ -25,7 +26,7 @@ function Services(){
             headers: {
                 'Content-Type': 'application/json',
             },
-        })
+            })
         .then((resp)=> resp.json())
         .then((data)=>{
             setServices(data)
@@ -35,6 +36,20 @@ function Services(){
         }, 3000)
     },[])
 
+    function removeService(id){
+        fetch(`http://localhost:5000/services/${id}`, {
+            method: 'DELETE',
+            headers:{
+                'Content-Type': 'application/json'
+            },
+        }).then(resp => resp.json())
+        .then(data =>{
+            setServices(services.filter((service) => service.id !== id))
+            setServiceMessage('Serviço removido com Sucesso!')
+        })
+        .catch(err => console.log(err))
+    }
+
     return (
         
         <div className={styles.service_container}>
@@ -43,6 +58,7 @@ function Services(){
                 <LinkButton to="/newservice" text='Criar Serviço'/>
             </div>
             {message && <Message msg={message} type="success"/>}
+            {serviceMessage && <Message type="success" msg={serviceMessage}/>}
             <Container customClass="start">
                 {services.length > 0 && services.map((service)=>(
                     <ServiceCard 
@@ -50,7 +66,8 @@ function Services(){
                         name={service.name}
                         budget={service.budget}
                         category={service.category.name}
-                        key={service.id}/>
+                        key={service.id}
+                        handleRemove={removeService}/>
                 ))}
                 {!removeLoading && <Loading/>}
                 {removeLoading && services.length ===0 &&
