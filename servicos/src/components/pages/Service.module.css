@@ -1,0 +1,42 @@
+.service_details{
+    padding: 2em;
+}
+.service_details h1,
+.service_details h2,
+.service_details p {
+    margin-bottom: 0.5em;
+}
+.service_details h1{
+    background-color: #999;
+    color: #2f3be0;
+    padding: 0.4em;
+}
+.service_details span{
+    font-weight: bold;
+}
+
+.details_container,
+.tarefas__form_container{
+    border-bottom: 1px solid #7a7a7a;
+    margin-bottom: 1.2em;
+    padding-bottom: 1.2em;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.btn {
+    background-color: #999;
+    color: #fff;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    transition: 0.5s;
+    cursor: pointer;
+    max-height: 40px;
+    border: none;
+}
+.btn:hover{
+    color: #2f3be0;
+}
+.service_info{
+    width: 100%;
+}

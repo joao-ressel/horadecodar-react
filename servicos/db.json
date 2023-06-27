@@ -1,5 +1,17 @@
 {
-  "services": [],
+  "services": [
+    {
+      "name": "Servico teste 53",
+      "budget": "333",
+      "category": {
+        "id": "2",
+        "name": "Desenvolvimento"
+      },
+      "cost": 0,
+      "task": [],
+      "id": 1
+    }
+  ],
   "categories": [
     {
       "id": 1,

@@ -14,7 +14,7 @@ function ServiceCard({id, name, budget, category, handleRemove}){
             <p><span >Orçamento:</span> R${budget}</p>
             <p className={styles.category_text}><span className={`${styles[category.toLowerCase()]}`}></span>{category}</p>
             <div className={styles.service_card_actions}>
-                <Link to="/"><BsPencil/> Editar</Link>
+                <Link to={`/services/${id}`}><BsPencil/> Editar</Link>
                 <button onClick={remove}>
                     <BsFillTrashFill/>Excluir
                 </button>
