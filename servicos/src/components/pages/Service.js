@@ -140,11 +140,15 @@ function Service(){
                     {message && <Message type={type} msg={message}/>}
                     <div className={styles.details_container}>
                         <h1>Serviço: {service.name}</h1>
+                        <div className={styles.botoes}>
                         <button 
-                        className={styles.btn} 
+                        className={styles.btn}
                         onClick={toggleServiceForm}>
                             {!showServiceForm ? 'Editar serviço': 'Fechar serviço'}
                         </button>
+                        
+                        </div>
+                        
                         {!showServiceForm ? (
                         <div className={styles.service_info}>
                             <p><span>Categoria: </span>{service.category.name}</p>
@@ -156,22 +160,22 @@ function Service(){
                             </div>
                         )}
                     </div>
-                    <div className={styles.tasks_form_container}>
-                            <h2>Adicione uma Tarefa:</h2>
-                            <button 
+                    <div className={styles.details_container}>
+                    <h2>Tarefas</h2>
+                        {showTaskForm && (
+                            <div  className={styles.service_info}>
+                                <TaskForm
+                                    handleSubmit={createTask}
+                                    btnText="Salvar Tarefa" 
+                                    serviceData={service}/>
+                                </div>
+                            )}
+                        <button 
                             className={styles.btn} 
                             onClick={toggleTaskForm}>
                                 {!showTaskForm ? 'Adicionar Tarefa': 'Fechar'}
                             </button>
-                            <div className={styles.service_info}>
-                                {showTaskForm && (<TaskForm
-                                    handleSubmit={createTask}
-                                    btnText="Salvar Tarefa" 
-                                    serviceData={service}   
-                                />)}
-                            </div>
                     </div>
-                        <h2>Tarefas</h2>
                         <Container customClass='start'>
                             {tasks.length > 0 &&
                                 tasks.map((task) =>(

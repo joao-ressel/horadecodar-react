@@ -20,6 +20,12 @@
           "cost": "600",
           "description": "asdasdasdasdasdasdasdasd",
           "id": "645ab88d-316a-4646-a3aa-7970f4ee11de"
+        },
+        {
+          "name": "asdasd",
+          "cost": "60",
+          "description": "asdasdasdasdasdasdasdasd",
+          "id": "a3cde0b8-bcbd-47d8-b047-7f9c5541ebfd"
         }
       ],
       "id": 1
@@ -59,6 +65,17 @@
         }
       ],
       "id": 3
+    },
+    {
+      "name": "Serviço 4",
+      "budget": "6000",
+      "category": {
+        "id": "4",
+        "name": "Planejamento"
+      },
+      "cost": 0,
+      "tasks": [],
+      "id": 4
     }
   ],
   "categories": [
