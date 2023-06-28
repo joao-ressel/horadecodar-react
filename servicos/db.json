@@ -1,15 +1,64 @@
 {
   "services": [
     {
-      "name": "Servico teste 533",
-      "budget": "33335",
+      "name": "Servico teste 1",
+      "budget": "6000",
+      "category": {
+        "id": "1",
+        "name": "Infra"
+      },
+      "cost": null,
+      "tasks": [
+        {
+          "name": "asdasd",
+          "cost": "300",
+          "description": "asdasdasdasdasdasdasdasd",
+          "id": "a50b9f6e-ccfd-47c6-943a-67a2e8282650"
+        },
+        {
+          "name": "asdasd",
+          "cost": "600",
+          "description": "asdasdasdasdasdasdasdasd",
+          "id": "645ab88d-316a-4646-a3aa-7970f4ee11de"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "name": "Servico teste 2",
+      "budget": "300",
+      "category": {
+        "id": "1",
+        "name": "Infra"
+      },
+      "cost": null,
+      "tasks": [
+        {
+          "name": "asdasdsdadasd",
+          "cost": "200",
+          "description": "asdasdasdasdasdasdasdasd",
+          "id": "87888eb0-56d3-455d-b10e-4f64a22f9716"
+        }
+      ],
+      "id": 2
+    },
+    {
+      "name": "Servico teste 3",
+      "budget": "100",
       "category": {
         "id": "2",
         "name": "Desenvolvimento"
       },
-      "cost": 0,
-      "task": [],
-      "id": 1
+      "cost": null,
+      "tasks": [
+        {
+          "name": "Tarefa 1",
+          "cost": "50",
+          "description": "asdasdasdasdasdasdasdasd",
+          "id": "17c276d6-da77-407c-9b51-66dc64bd978a"
+        }
+      ],
+      "id": 3
     }
   ],
   "categories": [

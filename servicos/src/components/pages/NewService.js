@@ -9,7 +9,7 @@ function NewService(){
 
         // initialize cost and services
         service.cost = 0
-        service.task = []
+        service.tasks = []
 
         fetch("http://localhost:5000/services", {
             method: 'POST',
