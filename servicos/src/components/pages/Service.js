@@ -11,6 +11,7 @@ function Service(){
 
     const [service, setService] = useState([])
     const [showServiceForm, setShowServiceForm] = useState(false)
+    const [showTaskForm, setShowTaskForm] = useState(false)
     const [message, setMessage] = useState()
     const [type, setType] = useState()
 
@@ -54,6 +55,9 @@ function Service(){
     function toggleServiceForm(){
         setShowServiceForm(!showServiceForm)
     }
+    function toggleTaskForm(){
+        setShowTaskForm(!showServiceForm)
+    }
     
     return(
         <>
@@ -63,7 +67,11 @@ function Service(){
                     {message && <Message type={type} msg={message}/>}
                     <div className={styles.details_container}>
                         <h1>Serviço: {service.name}</h1>
-                        <button className={styles.btn} onClick={toggleServiceForm}>{!showServiceForm ? 'Editar serviço': 'Fechar serviço'}</button>
+                        <button 
+                        className={styles.btn} 
+                        onClick={toggleServiceForm}>
+                            {!showServiceForm ? 'Editar serviço': 'Fechar serviço'}
+                        </button>
                         {!showServiceForm ? (
                         <div className={styles.service_info}>
                             <p><span>Categoria:</span>{service.category.name}</p>
@@ -75,6 +83,21 @@ function Service(){
                             </div>
                         )}
                     </div>
+                    <div className={styles.tasks_form_container}>
+                            <h2>Adicione uma Tarefa:</h2>
+                            <button 
+                            className={styles.btn} 
+                            onClick={toggleTaskForm}>
+                                {!showTaskForm ? 'Adicionar Tarefa': 'Fechar'}
+                            </button>
+                            <div className={styles.service_info}>
+                                {showTaskForm && <div>Formulário</div>}
+                            </div>
+                    </div>
+                        <h2>Tarefas</h2>
+                        <Container customClass='start'>
+                            <p>Itens de Tarefas</p>
+                        </Container>
                 </Container>
             </div>
            ) :( <Loading/>
