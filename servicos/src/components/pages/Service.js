@@ -3,13 +3,16 @@ import styles from './Service.module.css'
 import { useEffect, useState } from 'react'
 import Loading from '../layout/Loading'
 import Container from '../layout/Container'
+import ServiceForm from '../service/ServiceForm'
+import Message from '../layout/Message'
 function Service(){
 
     const {id}= useParams()
-    console.log(id)
 
     const [service, setService] = useState([])
     const [showServiceForm, setShowServiceForm] = useState(false)
+    const [message, setMessage] = useState()
+    const [type, setType] = useState()
 
     useEffect(()=>{
         setTimeout(()=>{
@@ -27,6 +30,27 @@ function Service(){
             }, 1000)
     },[id])
 
+    function editPost(service){
+        if(service.budget < service.cost){
+            //mensagem
+        }
+        fetch(`http://localhost:5000/services/${service.id}`,{
+            method: 'PATCH',
+            headers:{
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(service),
+        })
+        .then((resp)=> resp.json())
+            .then((data)=>{
+                setService(data)
+                setShowServiceForm(false)
+                setMessage('Serviço Atualizado!')
+                setType('success')
+            })
+            .catch((err)=> console.log(err))
+    }
+
     function toggleServiceForm(){
         setShowServiceForm(!showServiceForm)
     }
@@ -36,6 +60,7 @@ function Service(){
             {service.name ? (
             <div className={styles.service_details}>
                 <Container customClass="column">
+                    {message && <Message type={type} msg={message}/>}
                     <div className={styles.details_container}>
                         <h1>Serviço: {service.name}</h1>
                         <button className={styles.btn} onClick={toggleServiceForm}>{!showServiceForm ? 'Editar serviço': 'Fechar serviço'}</button>
@@ -46,7 +71,7 @@ function Service(){
                             <p><span>Total de Utilizado:</span>R${service.cost}</p>
                         </div>) : (
                             <div className={styles.service_info}>
-                                <p>Formulário</p>
+                                <ServiceForm handleSubmit={editPost} btnText="Salvar" serviceData={service}/>
                             </div>
                         )}
                     </div>
